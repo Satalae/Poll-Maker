@@ -2,7 +2,7 @@
 
 ## Description
 
-This is an example description for our project 2!
+"Polling App" is a web app that allows users to create polls and view the results using charts. With user authentication, database integration, and Chart.js, users can easily create and share polls with their friends and colleagues, while tracking the results in real-time. The app provides a clean and user-friendly interface, making it easy for anyone to create and participate in polls.
 
 ## Contributors
 
