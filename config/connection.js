@@ -3,6 +3,7 @@ require('dotenv').config();
 
 let sequelize;
 
+// Checks process.env.JAWSDB_URL, connects to JawsDB MySQL database if defined, or local MySQL server using specified options otherwise.
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
