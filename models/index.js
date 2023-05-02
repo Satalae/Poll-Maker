@@ -1,34 +1,28 @@
-const { User, Poll, Vote, Result, Setting } = require('./models');
+const { User, Poll, Vote, Option, Result, Setting } = require('../models');
 
-User.belongsToMany(Poll, {
-  through: 'user_poll',
-  foreignKey: 'user_id'
-});
+// User Model
+User.hasMany(Poll, { foreignKey: 'user_id', onDelete: 'CASCADE' });
+Poll.belongsTo(User, { foreignKey: 'user_id' });
 
-Poll.belongsToMany(User, {
-  through: 'user_poll',
-  foreignKey: 'poll_id'
-});
+// Poll Model
+Poll.hasMany(Option, { foreignKey: 'poll_id', onDelete: 'CASCADE' });
+Poll.hasOne(Setting, { foreignKey: 'poll_id', onDelete: 'CASCADE' });
+Poll.hasOne(Result, { foreignKey: 'poll_id', onDelete: 'CASCADE' });
+Option.belongsTo(Poll, { foreignKey: 'poll_id' });
 
-Poll.hasMany(Vote, {
-  foreignKey: 'poll_id',
-  onDelete: 'CASCADE'
-});
+// Setting Model
+Setting.belongsTo(Poll, { foreignKey: 'poll_id' });
 
-Vote.belongsTo(Poll, {
-  foreignKey: 'poll_id'
-});
+// Option Model
+Option.hasMany(Vote, { foreignKey: 'option_id', onDelete: 'CASCADE' });
+Vote.belongsTo(Option, { foreignKey: 'option_id' });
+Option.belongsTo(Poll, { foreignKey: 'poll_id' });
 
-Vote.belongsTo(User, {
-  foreignKey: 'user_id'
-});
+// Vote Model
+Vote.belongsTo(User, { foreignKey: 'user_id' });
 
-Poll.hasOne(Result, {
-  foreignKey: 'poll_id'
-});
+// Result Model
+Result.belongsTo(Poll, { foreignKey: 'poll_id' });
 
-Result.belongsTo(Poll, {
-  foreignKey: 'poll_id'
-});
 
-module.exports = { User, Poll, Vote, Result, Setting };
+module.exports = { User, Poll, Option, Vote, Result, Setting };
