@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> <!--APP NAME HERE--></title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+      <h1>
+       
+      </h1>
+      <nav>
+        <!-- Conditionally render logout link -->
+        <a href="/logout" class="logout">
+        {{#if logged_in}}
+        <a href="/logout">Logout</a>
+        {{/if}}
+      </nav>
+    </header>
+    <main class="container container-fluid mt-5">
+      <!-- Render the sub layout -->
+      {{{ body }}}
+    </main>
+    <footer>
+        <!-- conditionally render sign in box with username and password textboxes, login button and create account button-->
+        {{#if logged_in}}
+        <div class="display-flex justify-space-between align-center p-2">
+        <!--blank if users are logged in--> 
+        </div>
+        {{else}}
+        <div class="display-flex justify-space-between align-center p-2">
+        <a href="/login">Login</a>
+        <a href="/create-account">Create Account</a>
+        </div>
+        {{/if}}
+    </footer>
+
+      
+    </footer>
+  </div>
+
+  <!-- Render script for logged in users only -->
+  {{#if logged_in}}
+  <script src=""></script>
+  {{/if}}
+
+</body>
+</html>
