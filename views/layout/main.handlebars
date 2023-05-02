@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My App</title>
+    <title> <!--APP NAME HERE--></title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -24,13 +24,26 @@
       {{{ body }}}
     </main>
     <footer>
+        <!-- conditionally render sign in box with username and password textboxes, login button and create account button-->
+        {{#if logged_in}}
+        <div class="display-flex justify-space-between align-center p-2">
+        <!--blank if users are logged in--> 
+        </div>
+        {{else}}
+        <div class="display-flex justify-space-between align-center p-2">
+        <a href="/login">Login</a>
+        <a href="/create-account">Create Account</a>
+        </div>
+        {{/if}}
+    </footer>
+
       
     </footer>
   </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src=""></script>
   {{/if}}
 
 </body>
