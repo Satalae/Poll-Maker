@@ -1,5 +1,11 @@
-const { User, Poll, Vote, Option, Result } = require('../models');
+// import models
+const User = require('./user');
+const Poll = require('./poll');
+const Vote = require('./vote');
+const Option = require('./options');
+const Result = require('./results');
 
+// DEFINE MODEL RELATIONS
 // User Model
 User.hasMany(Poll, { foreignKey: 'user_id', onDelete: 'CASCADE' });
 Poll.belongsTo(User, { foreignKey: 'user_id' });
@@ -19,7 +25,5 @@ Option.belongsTo(Poll, { foreignKey: 'poll_id' });
 // Vote Model
 Vote.belongsTo(User, { foreignKey: 'user_id' });
 
-// Result Model
-Result.belongsTo(Poll, { foreignKey: 'poll_id' });
-
+// export models as object to use elsewhere in app
 module.exports = { User, Poll, Option, Vote, Result };
