@@ -2,7 +2,6 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
 
-
 class User extends Model {
   checkPassword(loginPw) {
     return bcrypt.compareSync(loginPw, this.password);
@@ -20,7 +19,13 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false,
-      unique: true
+      unique: true,
+      validate: {
+        len: {
+          args: [3, 50], // minimum 3 and maximum 50 characters
+          msg: 'Username must be between 3 and 50 characters in length.'
+        }
+      }
     },
     email: {
       type: DataTypes.STRING,
