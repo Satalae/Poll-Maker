@@ -24,5 +24,4 @@ Vote.belongsTo(User, { foreignKey: 'user_id' });
 // Result Model
 Result.belongsTo(Poll, { foreignKey: 'poll_id' });
 
-
 module.exports = { User, Poll, Option, Vote, Result, Setting };
