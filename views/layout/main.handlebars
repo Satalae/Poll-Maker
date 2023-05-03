@@ -15,7 +15,7 @@
         <!-- Conditionally render logout link -->
         <a href="/logout" class="logout">
         {{#if logged_in}}
-        <a href="/logout">Logout</a>
+        <a href="/public/js/logout.js">Logout</a>
         {{/if}}
       </nav>
     </header>
@@ -30,17 +30,46 @@
         <!--blank if users are logged in--> 
         </div>
         {{else}}
-        <div class="display-flex justify-space-between align-center p-2">
-        <a href="/login">Login</a>
-        <a href="/create-account">Create Account</a>
-        </div>
+        <class="display-flex justify-space-between align-center p-2">
+        <!--login div -->
+            <div class="col-md-6">
+             <h4>Login</h4>
+                <form class="form login-form">
+                    <div class="form-group">
+                    <label for="username-login">username:</label>
+                    <input class="form-input" type="text" id="username-login" />
+                </div>
+                <div class="form-group">
+                    <label for="password-login">password:</label>
+                    <input class="form-input" type="password" id="password-login" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">login</button>
+                </div>
+            </div>
+        <!--create account div -->
+            <div class="col-md-6">
+                <h4>Create an Account</h4>
+                <form class="form createaccount-form">
+                <div class="form-group">
+                    <label for="email-signup">email:</label>
+                    <input class="form-input" type="text" id="email-signup" />
+                </div>
+                <div class="form-group">
+                    <label for="password-signup">password:</label>
+                    <input class="form-input" type="password" id="password-signup" />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">signup</button>
+                </div>
+            </form>
         {{/if}}
     </footer>
   </div>
 
   <!-- Render script for logged in users only -->
   {{#if logged_in}}
-  <script src=""></script>
+  <script src="/public/js/login.js"></script>
   {{/if}}
 
 </body>
