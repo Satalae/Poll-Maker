@@ -47,4 +47,4 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 
-//comment
+//Comment
