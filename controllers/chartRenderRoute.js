@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Poll, Result } = require('./models');
+const { Poll, Result } = require('../models');
 
 // get poll results for a single poll
 router.get('/:id', async (req, res) => {
