@@ -25,5 +25,12 @@ Option.belongsTo(Poll, { foreignKey: 'poll_id' });
 // Vote Model
 Vote.belongsTo(User, { foreignKey: 'user_id' });
 
-// export models as object to use elsewhere in app
-module.exports = { User, Poll, Option, Vote, Result };
+const models = {
+    User,
+    Poll,
+    Vote,
+    Option,
+    Result
+};
+
+module.exports = models;
