@@ -1,0 +1,8 @@
+{{#each polls as |poll|}}
+<!-- left column polls-->
+  <div class="left-column">
+    <h2>My Polls</h2>
+    {{#each polls}}
+    <p>{{this}}</p>
+    <p>Created by {{poll.user.name}}</p>
+    {{/each}}
