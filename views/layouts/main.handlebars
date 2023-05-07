@@ -9,20 +9,24 @@
     <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-       
+       <!-- App name should go here -->
       </h1>
-      <nav>
+    
+      <nav style="display:flex; justify-content: flex-end;">
         <!-- Conditionally render logout link -->
         <a href="/logout" class="logout">
         {{#if logged_in}}
         <a href="/public/js/logout.js">Logout</a>
         {{/if}}
       </nav>
+
     </header>
     <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+
+    
     <footer>
         <!-- conditionally render sign in box with username and password textboxes, login button and create account button-->
         {{#if logged_in}}
@@ -52,7 +56,7 @@
                 <h4>Create an Account</h4>
                 <form class="form createaccount-form">
                 <div class="form-group">
-                    <label for="email-signup">email:</label>
+                    <label for="username-signup">username:</label>
                     <input class="form-input" type="text" id="email-signup" />
                 </div>
                 <div class="form-group">
