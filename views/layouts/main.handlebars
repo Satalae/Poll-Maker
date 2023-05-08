@@ -13,10 +13,12 @@
       </h1>
     
       <nav style="display:flex; justify-content: flex-end;">
-        <!-- Conditionally render logout link -->
-        <a href="/logout" class="logout">
+        <!-- Conditionally render logout button -->
         {{#if logged_in}}
-        <a href="/public/js/logout.js">Logout</a>
+            <a href="/logout" class="button button-clear">Logout</a>
+            {{else}}
+            <a href="/login" class="button button-clear">Login</a>
+            <a href="/signup" class="button button-clear">Sign Up</a>
         {{/if}}
       </nav>
 
@@ -26,55 +28,11 @@
       {{{ body }}}
     </main>
 
-    
+
     <footer>
-        <!-- conditionally render sign in box with username and password textboxes, login button and create account button-->
-        {{#if logged_in}}
-        <div class="display-flex justify-space-between align-center p-2">
-        <!--blank if users are logged in--> 
-        </div>
-        {{else}}
-        <class="display-flex justify-space-between align-center p-2">
-        <!--login div -->
-            <div class="col-md-6">
-             <h4>Login</h4>
-                <form class="form login-form">
-                    <div class="form-group">
-                    <label for="username-login">username:</label>
-                    <input class="form-input" type="text" id="username-login" />
-                </div>
-                <div class="form-group">
-                    <label for="password-login">password:</label>
-                    <input class="form-input" type="password" id="password-login" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">login</button>
-                </div>
-            </div>
-        <!--create account div -->
-            <div class="col-md-6">
-                <h4>Create an Account</h4>
-                <form class="form createaccount-form">
-                <div class="form-group">
-                    <label for="username-signup">username:</label>
-                    <input class="form-input" type="text" id="email-signup" />
-                </div>
-                <div class="form-group">
-                    <label for="password-signup">password:</label>
-                    <input class="form-input" type="password" id="password-signup" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">signup</button>
-                </div>
-            </form>
-        {{/if}}
     </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/public/js/login.js"></script>
-  {{/if}}
-
+        
+    <!--script tag for logout.js-->
+    <script src="/public/js/logout.js"></script>
 </body>
 </html>
