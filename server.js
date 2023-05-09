@@ -1,21 +1,20 @@
 // Import modules and files
+const path = require('path');
 const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
-const dotenv = require('dotenv');
-const routes = require('./controllers/index');
-const sequelize = require('./config/connection');
-const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const routes = require('./controllers');
 const helpers = require('./utils/helper');
 
-// Load environment variables
-dotenv.config();
+// Set up sequelize constants
+const sequelize = require('./config/connection');
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Create a new Express app
 const app = express();
 
 // Set the port to listen on
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3001;
 
 // Set up Handlebars.js engine with custom helpers
 const hbs = exphbs.create({ helpers });
@@ -36,13 +35,14 @@ const sess = {
 // Set up Express to use the session middleware
 app.use(session(sess));
 
-// Use middleware for parsing JSON and URL-encoded data
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
 // Set up the Express app to use the Handlebars.js template engine
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+
+// Use middleware for parsing JSON and URL-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Define the routes using the ./controllers module
 app.use(routes);
