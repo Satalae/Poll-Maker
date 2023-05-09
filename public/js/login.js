@@ -2,22 +2,25 @@
 const loginFormHandler = async (event) => {
     event.preventDefault();
 
-    //get values from login feild
+    //get values from login field
     const username = document.querySelector('#username-login').value.trim();
     const password = document.querySelector('#password-login').value.trim();
-
-    //if username and password are not empty, and response is ok, send to profile page
-    if (username && password) {
-        const response = await fetch('/api/users/login', {
-            method: 'POST',
-            body: JSON.stringify({ username, password }),
-            headers: { 'Content-Type': 'application/json' },
-        });
-        if (response.status === 200) {
-            document.location.replace('/homepage');
-        } else {
-            alert('Failed to log in');
+    try{
+        //if username and password are not empty, and response is ok, send to profile page
+        if (username && password) {
+            const response = await fetch('/api/users/login', {
+                method: 'POST',
+                body: JSON.stringify({ username, password }),
+                headers: { 'Content-Type': 'application/json' },
+            });
+            if (response.ok) {
+                document.location.replace('/homepage');
+            } else {
+                alert('Uh oh');
+            }
         }
+    } catch(err){
+        console.log(err);
     }
 };
 
