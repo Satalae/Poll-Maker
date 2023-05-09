@@ -2,7 +2,7 @@
 const logoutFormHandler = async (event) => {
     event.preventDefault();
     const response = await fetch('/api/users/logout',{
-        method: 'POST',
+        method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     });
     if (response.status === 200) {
@@ -12,4 +12,4 @@ const logoutFormHandler = async (event) => {
     }
 };
 
-//document.querySelector('#logout').addEventListener('click', logoutFormHandler);
+document.querySelector('#logout').addEventListener('click', logoutFormHandler);
