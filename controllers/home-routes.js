@@ -51,14 +51,36 @@ router.get('/homepage/:id', async (req, res) => {
                     model: User,
                     attributes: ['username'],
                 },
+                {
+                    model: Result,
+                },
             ],
         });
         const poll = pollData.get({ plain: true });
 
-        res.render('poll', {
+        res.render('chartView', {
             ...poll,
             logged_in: req.session.logged_in
         });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+// Separate route for fetching poll data as JSON
+router.get('/api/homepage/:id', async (req, res) => {
+    try {
+        const pollData = await Poll.findByPk(req.params.id, {
+            include: [
+                {
+                    model: User,
+                    attributes: ['username'],
+                },
+            ],
+        });
+        const poll = pollData.get({ plain: true });
+
+        res.json(poll);
     } catch (err) {
         res.status(500).json(err);
     }

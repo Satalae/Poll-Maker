@@ -1,4 +1,3 @@
-<!-- left column polls-->
 <div class="leftcol " id="leftcol">
   <div class="left-column">
     <h2>My Polls</h2>
@@ -6,17 +5,15 @@
     <h3>{{this.title}}</h3>
     <p>{{this.description}}</p>
     <p>Created by {{poll.user.username}}</p>
-     <div>
-        <!--buttons for edit, delete, and view results for selected poll -->
+    <div>
+      <!--buttons for edit, delete, and view results for selected poll -->
+      <button id="editpoll">Edit Poll</button>
+      <button id="deletepoll">Delete Poll</button>
 
-        <!-- if this.user_id(who the poll belongs to) == session.id(the user logged in)-->
-        <button id="editpoll">Edit Poll</button>
-        <button id="deletepoll">Delete Poll</button>
-        <!-- /if -->
-
-        <button id="viewresults">View Results</button>
+      <button class="viewresults" data-id="{{this.id}}">View Results</button>
     </div>
   </div>
-{{/each}}
+  {{/each}}
 </div>
 
+<script src="/js/homepage.js"></script>
