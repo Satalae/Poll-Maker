@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
 
     //if username and password are not empty, and response is ok, send to profile page
     if (username && password) {
-        const response = await fetch(`${process.env.API_URL}/login`, {
+        const response = await fetch('/api/users/login', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
@@ -20,9 +20,6 @@ const loginFormHandler = async (event) => {
         }
     }
 };
-;
-
-
 
 
 
@@ -33,17 +30,28 @@ const createAccountHandler = async (event) => {
     const username = document.querySelector('#username-signup').value.trim(); 
 //const password, value trim
     const password = document.querySelector('#password-signup').value.trim();
-//if username and password are not empty, and response is ok, send alert saying account created and send to profile 
+
+//if username and password are not empty, and response is ok, send to profile page
     if (username && password) {
-        const response = await fetch(`${process.env.API_URL}/signup`, {
+        const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
-        }); 
+        });
+        if (response.status === 200) {
+            document.location.replace('/profile');
+        } else {
+            alert('Failed to create account');
+        }
+    }
+};
 
-//else send alert saying account not created
+document
+  .querySelector('.login-form')
+  .addEventListener('submit', loginFormHandler);
 
 
-
-
-
+document
+    .querySelector('.create-account-form')
+    .addEventListener('submit', createAccountHandler);
+    

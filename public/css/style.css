@@ -1,4 +1,17 @@
-#login
 
-#createaccount
+.nav {
+    background-color: #626161;
+    overflow: hidden;
+}
 
+.header {
+    background-color: #0be0bd88;
+    padding: 30px;
+    text-align: center;
+}
+
+#body {
+    padding: 20px;
+    background-color: #e6e6e6;
+    min-height: 100vh;
+}
