@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Poll } = require('../models');
+const { User, Poll, Result } = require('../models');
 const auth = require('../utils/auth');
 
 // Login/Base Page
@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.get('/homepage', async (req, res) => {
     try {
         // If not logged in, send back to start
-        if(!req.session.logged_in){
+        if (!req.session.logged_in) {
             res.redirect('/');
             return;
         }
@@ -43,8 +43,8 @@ router.get('/homepage', async (req, res) => {
 });
 
 // Route to a specific poll
-router.get('/homepage/:id', async(req, res) => {
-    try{
+router.get('/homepage/:id', async (req, res) => {
+    try {
         const pollData = await Poll.findByPk(req.params.id, {
             include: [
                 {
