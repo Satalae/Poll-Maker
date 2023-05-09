@@ -1,8 +1,17 @@
-{{#each polls as |poll|}}
 <!-- left column polls-->
+<div class="leftcol" id="leftcol">
+{{#each polls as |poll|}}
   <div class="left-column">
     <h2>My Polls</h2>
     {{#each polls}}
     <p>{{this}}</p>
     <p>Created by {{poll.user.name}}</p>
     {{/each}}
+</div>
+
+<!--main body sections that displays poll selected from leftcol-->
+<div class="mainbody" id="mainbody">
+
+
+</div>
+

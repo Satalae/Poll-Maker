@@ -27,12 +27,19 @@ const loginFormHandler = async (event) => {
 
 
 //create account handler
-
+const createAccountHandler = async (event) => {
+    event.preventDefault();
 // const username  value trim
- 
+    const username = document.querySelector('#username-signup').value.trim(); 
 //const password, value trim
-
+    const password = document.querySelector('#password-signup').value.trim();
 //if username and password are not empty, and response is ok, send alert saying account created and send to profile 
+    if (username && password) {
+        const response = await fetch(`${process.env.API_URL}/signup`, {
+            method: 'POST',
+            body: JSON.stringify({ username, password }),
+            headers: { 'Content-Type': 'application/json' },
+        }); 
 
 //else send alert saying account not created
 
