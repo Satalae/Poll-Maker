@@ -1,7 +1,7 @@
 // logout handler
 const logoutFormHandler = async (event) => {
     event.preventDefault();
-    const response = await fetch('/api/users/logout',{
+    const response = await fetch('/api/users',{
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     });
