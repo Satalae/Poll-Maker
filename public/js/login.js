@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.status === 200) {
-            document.location.replace('/profile');
+            document.location.replace('/homepage');
         } else {
             alert('Failed to log in');
         }

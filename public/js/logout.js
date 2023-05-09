@@ -8,8 +8,8 @@ const logoutFormHandler = async (event) => {
     if (response.status === 200) {
         document.location.replace('/');
         } else {
-            alert(response.statusText);
+            alert('failed to logout');
     }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector('#logout').addEventListener('click', logoutFormHandler);
