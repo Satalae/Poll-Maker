@@ -22,11 +22,7 @@ const newPollHandler = async (event) =>{
             alert('Failed to create poll');
         }
     }
-}
-
-
-
-
+};
 
 //edit poll handler
 const editPollHandler = async (event) => {
@@ -53,8 +49,7 @@ const editPollHandler = async (event) => {
             alert('Failed to update poll');
         }
     }
-}
-
+};
 
 //delete poll handler
 const deletePollHandler = async (event) => {
@@ -71,4 +66,4 @@ const deletePollHandler = async (event) => {
           alert('Failed to delete project');
         }
       }
-    };
+};
