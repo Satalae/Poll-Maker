@@ -17,9 +17,9 @@ router.post('/', async (req, res) => {
 });
 
 // Login Route
-router.post('/login', async(req,res) => {
+router.post('/login', async(req, res) => {
     try{
-        const userData = User.findOne({ where: { username: req.body.username }});
+        const userData = await User.findOne({ where: { username: req.body.username } });
 
         if(!userData){
             res.status(400)
@@ -46,7 +46,7 @@ router.post('/login', async(req,res) => {
 });
 
 // Logout route
-router.post('/logout', (req, res) => {
+router.delete('/logout', (req, res) => {
     if(req.session.logged_in){
         req.session.destroy(() => {
             res.status(204).end();

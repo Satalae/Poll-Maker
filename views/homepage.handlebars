@@ -1,17 +1,15 @@
 <!-- left column polls-->
 <div class="leftcol" id="leftcol">
-{{#each polls as |poll|}}
   <div class="left-column">
     <h2>My Polls</h2>
-    {{#each polls}}
+    {{#each polls as |poll|}}
+    {{#each poll}}
     <p>{{this}}</p>
-    <p>Created by {{poll.user.name}}</p>
+    <p>Created by {{poll.user.username}}</p>
     {{/each}}
+  </div>
+{{/each}}
 </div>
 
 <!--main body sections that displays poll selected from leftcol-->
-<div class="mainbody" id="mainbody">
-
-
-</div>
 
