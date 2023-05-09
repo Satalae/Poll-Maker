@@ -57,9 +57,3 @@ document
     .querySelector('.create-account-form')
     .addEventListener('submit', createAccountHandler);
     
-
-
-
-
-
-
