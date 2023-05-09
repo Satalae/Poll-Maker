@@ -42,8 +42,4 @@ const createAccountHandler = async (event) => {
         }); 
 
 //else send alert saying account not created
-
-
-
-
-
+}}

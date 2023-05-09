@@ -37,7 +37,7 @@ router.get('/homepage', auth, async(req, res) => {
 });
 
 // Route to a specific poll
-router.get('/poll/:id', async(req, res) => {
+router.get('/homepage/:id', async(req, res) => {
     try{
         const pollData = await Poll.findByPk(req.params.id, {
             include: [
@@ -57,3 +57,5 @@ router.get('/poll/:id', async(req, res) => {
         res.status(500).json(err);
     }
 });
+
+module.exports = router;
