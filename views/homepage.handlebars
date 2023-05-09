@@ -3,14 +3,17 @@
   <div class="left-column">
     <h2>My Polls</h2>
     {{#each polls as |poll|}}
-    {{#each poll}}
-    <p>{{this}}</p>
+    <h3>{{this.title}}</h3>
+    <p>{{this.description}}</p>
     <p>Created by {{poll.user.username}}</p>
-    {{/each}}
      <div>
         <!--buttons for edit, delete, and view results for selected poll -->
+
+        <!-- if this.user_id(who the poll belongs to) == session.id(the user logged in)-->
         <button id="editpoll">Edit Poll</button>
         <button id="deletepoll">Delete Poll</button>
+        <!-- /if -->
+
         <button id="viewresults">View Results</button>
     </div>
   </div>
