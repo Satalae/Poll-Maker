@@ -14,14 +14,12 @@ const loginFormHandler = async (event) => {
             headers: { 'Content-Type': 'application/json' },
         });
         if (response.status === 200) {
-            document.location.replace('/profile');
+            document.location.replace('/homepage');
         } else {
             alert('Failed to log in');
         }
     }
 };
-
-
 
 //create account handler
 const createAccountHandler = async (event) => {
@@ -40,7 +38,7 @@ const createAccountHandler = async (event) => {
         });
         console.log(response);
         if (response.status === 200) {
-            document.location.replace('/profile');
+            document.location.replace('/homepage');
         } else {
             alert('Failed to create account');
         }
