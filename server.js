@@ -5,6 +5,7 @@ const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
 const helpers = require('./utils/helper');
+require('dotenv').config();
 
 // Set up sequelize constants
 const sequelize = require('./config/connection');
@@ -49,5 +50,8 @@ app.use(routes);
 
 // Sync the Sequelize models with the database and start the server
 sequelize.sync({ force: false }).then(() => {
+  console.log("Database synced!");
   app.listen(PORT, () => console.log(`Now listening on port ${PORT}!`));
+}).catch(err => {
+  console.log("Error syncing database:", err);
 });
