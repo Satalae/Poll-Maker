@@ -17,9 +17,9 @@ router.post('/', async (req, res) => {
 });
 
 // Login Route
-router.post('/', async(req,res) => {
+router.post('/login', async(req, res) => {
     try{
-        const userData = User.findOne({ where: { username: req.body.username }});
+        const userData = User.findOne({ where: { username: req.body.username } });
 
         if(!userData){
             res.status(400)

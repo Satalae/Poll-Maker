@@ -4,7 +4,6 @@ const express = require('express');
 const session = require('express-session');
 const exphbs = require('express-handlebars');
 const routes = require('./controllers');
-const helpers = require('./utils/helper');
 require('dotenv').config();
 
 // Set up sequelize constants
@@ -16,9 +15,6 @@ const app = express();
 
 // Set the port to listen on
 const PORT = process.env.PORT || 3001;
-
-// Set up Handlebars.js engine with custom helpers
-const hbs = exphbs.create({ helpers });
 
 // Session configuration 
 const sess = {
@@ -37,6 +33,7 @@ const sess = {
 app.use(session(sess));
 
 // Set up the Express app to use the Handlebars.js template engine
+const hbs = exphbs.create({});
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
