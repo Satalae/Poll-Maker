@@ -1,25 +1,17 @@
 const router = require('express').Router();
 const { Poll, Result } = require('../models');
 
-// get poll results for a single poll
-router.get('/:id', async (req, res) => {
+
+router.get('/polls/:id', async (req, res) => {
     try {
         const poll = await Poll.findOne({
-            where: {
-                id: req.params.id
-            },
-            include: [{
-                model: Result,
-                attributes: ['option_1_votes', 'option_2_votes']
-            }]
+            where: { id: req.params.id },
+            include: [Result]
         });
-        // Render the poll results for a single poll using Handlebars.js
-        res.render('polls', {
-            polls: [poll]
-        });
+        res.render('chartview', { poll });
     } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+        console.error(err);
+        res.status(500).json({ message: 'Internal server error' });
     }
 });
 
