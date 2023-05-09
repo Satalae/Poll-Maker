@@ -8,7 +8,7 @@ const loginFormHandler = async (event) => {
     try{
         //if username and password are not empty, and response is ok, send to profile page
         if (username && password) {
-            const response = await fetch('/api/users/login', {
+            const response = await fetch('/api/users', {
                 method: 'POST',
                 body: JSON.stringify({ username, password }),
                 headers: { 'Content-Type': 'application/json' },
@@ -56,6 +56,4 @@ document
 document
     .querySelector('.createaccount-form')
     .addEventListener('submit', createAccountHandler);
-     
 
-//else send alert saying account not created
