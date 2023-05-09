@@ -38,6 +38,7 @@ const createAccountHandler = async (event) => {
             body: JSON.stringify({ username, password }),
             headers: { 'Content-Type': 'application/json' },
         });
+        console.log(response);
         if (response.status === 200) {
             document.location.replace('/profile');
         } else {
@@ -52,6 +53,8 @@ document
 
 
 document
-    .querySelector('.create-account-form')
+    .querySelector('.createaccount-form')
     .addEventListener('submit', createAccountHandler);
-    
+     
+
+//else send alert saying account not created
