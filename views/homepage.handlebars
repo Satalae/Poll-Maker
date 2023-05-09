@@ -1,5 +1,5 @@
 <!-- left column polls-->
-<div class="leftcol" id="leftcol">
+<div class="leftcol " id="leftcol">
   <div class="left-column">
     <h2>My Polls</h2>
     {{#each polls as |poll|}}
@@ -7,9 +7,13 @@
     <p>{{this}}</p>
     <p>Created by {{poll.user.username}}</p>
     {{/each}}
+     <div>
+        <!--buttons for edit, delete, and view results for selected poll -->
+        <button id="editpoll">Edit Poll</button>
+        <button id="deletepoll">Delete Poll</button>
+        <button id="viewresults">View Results</button>
+    </div>
   </div>
 {{/each}}
 </div>
-
-<!--main body sections that displays poll selected from leftcol-->
 
