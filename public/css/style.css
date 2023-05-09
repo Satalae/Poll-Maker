@@ -1,17 +1,38 @@
 
-.nav {
-    background-color: #626161;
+nav {
+    color: white;
     overflow: hidden;
 }
 
-.header {
-    background-color: #0be0bd88;
+header {
+    background-color: #144154;
+    color: #33A3D4;
     padding: 30px;
     text-align: center;
 }
 
 #body {
+    justify-content: center;
+    align-items: center;
     padding: 20px;
-    background-color: #e6e6e6;
+    background-color:#AFCEDB;
+    color: #094661;
     min-height: 100vh;
 }
+
+.logout {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  h1 {
+    font-size: 50px;
+    color: #33A3D4;
+    text-align: center;
+    margin-bottom: 20px;
+  }
