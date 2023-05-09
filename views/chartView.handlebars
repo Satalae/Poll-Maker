@@ -1,14 +1,16 @@
-    <div class="container">
-        {{#each polls}}
-        <h2>{{this.title}}</h2>
-        <p>Total Votes: {{this.result.option_1_votes + this.result.option_2_votes}}</p>
-        <canvas id="{{this.id}}" width="400" height="400"></canvas>
-        {{/each}}
-    </div>
-    <script src="/path/to/Chart.min.js"></script>
-    <script src="/createCharts.js"></script>
-    <script>
-        { { #each polls } }
-        { { {createChart this.id this.result.option_1_votes this.result.option_2_votes } } }
-        { { /each}}
-    </script>
+<div class="container">
+    {{#each polls}}
+    <h2>{{this.title}}</h2>
+    <p>Total Votes: {{this.result.option_1_votes}} + {{this.result.option_2_votes}}
+    </p>
+    <canvas id="{{this.id}}" width="400" height="400"></canvas>
+    {{/each}}
+</div>
+<script src="path/to/chartjs/dist/chart.umd.js"></script>
+
+<script src="/public/js/createCharts.js"></script>
+<script>
+    { { #each polls } }
+    { { {createChart this.id this.result.option_1_votes this.result.option_2_votes } } }
+    { { /each}}
+</script>
