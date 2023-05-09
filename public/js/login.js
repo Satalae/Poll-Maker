@@ -55,6 +55,4 @@ document
 document
     .querySelector('.createaccount-form')
     .addEventListener('submit', createAccountHandler);
-     
 
-//else send alert saying account not created
