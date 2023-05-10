@@ -27,14 +27,6 @@ User.init(
         }
       }
     },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        isEmail: true
-      }
-    },
     password: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -53,15 +45,13 @@ User.init(
         updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
         return updatedUserData;
       }
-    }
-  },
-  {
-    sequelize,
+    },
+    sequelize: sequelize,
     timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'user'
-  }
+  },
 );
 
 module.exports = User;

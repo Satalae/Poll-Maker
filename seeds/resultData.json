@@ -1,0 +1,17 @@
+[
+    {
+        "poll_id": 1,
+        "option_1_votes": 2,
+        "option_2_votes": 1
+    },
+    {
+        "poll_id": 2,
+        "option_1_votes": 0,
+        "option_2_votes": 3
+    },
+    {
+        "poll_id": 3,
+        "option_1_votes": 1,
+        "option_2_votes": 1
+    }
+]

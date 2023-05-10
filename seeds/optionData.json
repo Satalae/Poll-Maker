@@ -1,0 +1,26 @@
+[
+    {
+        "choice": "Red",
+        "poll_id": 1
+    },
+    {
+        "choice": "Blue",
+        "poll_id": 1
+    },
+    {
+        "choice": "Pizza",
+        "poll_id": 2
+    },
+    {
+        "choice": "Tacos",
+        "poll_id": 2
+    },
+    {
+        "choice": "The Shawshank Redemption",
+        "poll_id": 3
+    },
+    {
+        "choice": "The Godfather",
+        "poll_id": 3
+    }
+]

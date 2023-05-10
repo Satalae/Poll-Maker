@@ -1,7 +1,16 @@
 // logout handler
-// /api/users/logout
+const logoutFormHandler = async (event) => {
+    event.preventDefault();
+    const response = await fetch('/api/users/logout',{
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
+    });
+    if (response.ok) {
+        console.log("logout successful!");
+        document.location.replace('/');
+        } else {
+            alert('failed to logout');
+    }
+};
 
-//const logout async/await fetch call
-
-//if response is ok, send to homepage
-
+document.querySelector('.logout').addEventListener('click', logoutFormHandler);

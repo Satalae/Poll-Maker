@@ -2,75 +2,36 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title> <!--APP NAME HERE--></title>
+    <title> Pollstraw</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <div class="flex-column justify-space-around">
+    
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-       
+       Pollstraw
       </h1>
-      <nav>
-        <!-- Conditionally render logout link -->
-        <a href="/logout" class="logout">
+    
+      <nav style="display:flex; justify-content: flex-end;">
+        <!-- Conditionally render logout button -->
         {{#if logged_in}}
-        <a href="/public/js/logout.js">Logout</a>
+            <button class="logout">Logout</button>
         {{/if}}
       </nav>
+
     </header>
-    <main class="container container-fluid mt-5">
+    <main class="container container-fluid mt-5" id="body">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
+
+
     <footer>
-        <!-- conditionally render sign in box with username and password textboxes, login button and create account button-->
-        {{#if logged_in}}
-        <div class="display-flex justify-space-between align-center p-2">
-        <!--blank if users are logged in--> 
-        </div>
-        {{else}}
-        <class="display-flex justify-space-between align-center p-2">
-        <!--login div -->
-            <div class="col-md-6">
-             <h4>Login</h4>
-                <form class="form login-form">
-                    <div class="form-group">
-                    <label for="username-login">username:</label>
-                    <input class="form-input" type="text" id="username-login" />
-                </div>
-                <div class="form-group">
-                    <label for="password-login">password:</label>
-                    <input class="form-input" type="password" id="password-login" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">login</button>
-                </div>
-            </div>
-        <!--create account div -->
-            <div class="col-md-6">
-                <h4>Create an Account</h4>
-                <form class="form createaccount-form">
-                <div class="form-group">
-                    <label for="email-signup">email:</label>
-                    <input class="form-input" type="text" id="email-signup" />
-                </div>
-                <div class="form-group">
-                    <label for="password-signup">password:</label>
-                    <input class="form-input" type="password" id="password-signup" />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary" type="submit">signup</button>
-                </div>
-            </form>
-        {{/if}}
     </footer>
-  </div>
-
-  <!-- Render script for logged in users only -->
-  {{#if logged_in}}
-  <script src="/public/js/login.js"></script>
-  {{/if}}
-
+        
+    <!--script tag for logout.js-->
+    <script src="/js/logout.js"></script>
+    <!--script for bootstrap styling -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 </html>

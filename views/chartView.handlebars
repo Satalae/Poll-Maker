@@ -1,0 +1,42 @@
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<div>
+    <h1>Poll Results</h1>
+    <canvas id="pollChart"></canvas>
+
+    <script>
+        const option1Votes = {{ poll.result.dataValues.option_1_votes }};
+        const option2Votes = {{ poll.result.dataValues.option_2_votes }};
+
+        const ctx = document.getElementById('pollChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Option 1', 'Option 2'],
+                datasets: [{
+                    label: 'Votes',
+                    data: [option1Votes, option2Votes],
+                    backgroundColor: [
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(255, 99, 132, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(255, 99, 132, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+    <button class="back-button">Back</button>
+</div>
+
+<script src="/js/chartView.js"></script>

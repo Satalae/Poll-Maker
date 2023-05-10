@@ -1,8 +1,19 @@
-{{#each polls as |poll|}}
-<!-- left column polls-->
+<div class="leftcol " id="leftcol">
   <div class="left-column">
     <h2>My Polls</h2>
-    {{#each polls}}
-    <p>{{this}}</p>
-    <p>Created by {{poll.user.name}}</p>
-    {{/each}}
+    {{#each polls as |poll|}}
+    <h3>{{this.title}}</h3>
+    <p>{{this.description}}</p>
+    <p>Created by {{poll.user.username}}</p>
+    <div>
+      <!--buttons for edit, delete, and view results for selected poll -->
+      <button id="editpoll">Edit Poll</button>
+      <button id="deletepoll">Delete Poll</button>
+
+      <button class="viewresults" data-id="{{this.id}}">View Results</button>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
+<script src="/js/homepage.js"></script>
