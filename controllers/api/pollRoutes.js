@@ -1,38 +1,45 @@
 const router = require('express').Router();
-const { Poll } = require('../../models');
-const auth = require('../../utils/auth');
+const { Poll, Option, Result } = require('../../models');
 
-// Creating a poll
-router.post('/homepage', auth, async(req, res) => {
-    try{
+router.post('/', async (req, res) => {
+    try {
         const newPoll = await Poll.create({
-            ...req.body,
+            title: req.body.title,
+            description: req.body.description,
+            end_date: req.body.endDate,
             user_id: req.session.user_id,
         });
 
+        await Option.bulkCreate([
+            { choice: req.body.option1, poll_id: newPoll.id },
+            { choice: req.body.option2, poll_id: newPoll.id },
+        ]);
+
+        await Result.create({ poll_id: newPoll.id });
+
         res.status(200).json(newPoll);
-    }catch(err){
-        res.status(400).json(err);
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
     }
 });
 
-// Deleting a poll
-router.delete('/homepage/:id', auth, async(req, res) => {
-    try{
+router.delete('/:id', async (req, res) => {
+    try {
         const pollData = await Poll.destroy({
             where: {
                 id: req.params.id,
                 user_id: req.session.user_id,
             },
         });
-        
-        if(!pollData){
-            res.status(404).json({message: 'No poll found with this ID!'});
+
+        if (!pollData) {
+            res.status(404).json({ message: 'No poll found with this ID!' });
             return;
         }
 
         res.status(200).json(pollData);
-    }catch(err){
+    } catch (err) {
         res.status(500).json(err);
     }
 });

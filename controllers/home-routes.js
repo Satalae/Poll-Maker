@@ -86,4 +86,9 @@ router.get('/api/homepage/:id', async (req, res) => {
     }
 });
 
+// Route to the page for creating a new poll
+router.get('/createpoll', (req, res) => {
+    res.render('createPoll', { logged_in: req.session.logged_in });
+});
+
 module.exports = router;
